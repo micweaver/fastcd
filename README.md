@@ -58,12 +58,14 @@ fastcd 有一个服务端程序，负责接收目录查询请求，启动服务�
     /home/lizhonghua/project/user/src/application/models
 
 我们键入 c model 命令(c只是一个alias,你可以选择自己喜欢的名字) ,即把当前目录下所有以model为前缀的目录列出来，然后选择编号3，即进入相应目录，也可以直接进入相应目录
-    $ c model 3
-    $ pwd
-    /home/lizhonghua/project/user/src/application/models
+
+      $c model 3
+      $pwd
+      /home/lizhonghua/project/user/src/application/models
 
 
 另外第二个参数可以是某个目录路径，表示在其路径下搜索目录，比如 c model / 表示在所有索引中搜索 model,因/代表根目录
+
 
 fastcd-server支持三种搜索模式，可以在启动时通过 –m 参数进行配置
 在没有提供第二个参数时，即比如 c model 时配置m值对应的策略：<br />
