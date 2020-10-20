@@ -1,6 +1,6 @@
 /**
  * @author  lizhonghua@360.cn
- * @desc     Ìá¹©ÍøÂç·şÎñ£¬½ÓÊÕÄ¿Â¼²éÑ¯ÇëÇó
+ * @desc     æä¾›ç½‘ç»œæœåŠ¡ï¼Œæ¥æ”¶ç›®å½•æŸ¥è¯¢è¯·æ±‚
  */
 
 #include<stdio.h>
@@ -32,11 +32,11 @@ list_node *fail_dir;
 
 extern int sum_dir;
 
-#define MODEL_ALL 1  //ËÑË÷È«²¿Ä¿Â¼
-#define MODEL_PWD 2 //ËÑË÷µ±Ç°Ä¿Â¼ÒÔÏÂµÄÄ¿Â¼
-#define MODEL_SMART 3  //ÏÈËÑË÷µ±Ç°Ä¿Â¼ÒÔÏÂÄ¿Â¼£¬½á¹ûÎª¿ÕÔÙËÑË÷È«²¿Ä¿Â¼
+#define MODEL_ALL 1  //æœç´¢å…¨éƒ¨ç›®å½•
+#define MODEL_PWD 2 //æœç´¢å½“å‰ç›®å½•ä»¥ä¸‹çš„ç›®å½•
+#define MODEL_SMART 3  //å…ˆæœç´¢å½“å‰ç›®å½•ä»¥ä¸‹ç›®å½•ï¼Œç»“æœä¸ºç©ºå†æœç´¢å…¨éƒ¨ç›®å½•
 
-static int search_model = MODEL_SMART;	//ËÑË÷Ä£Ê½
+static int search_model = MODEL_SMART;	//æœç´¢æ¨¡å¼
 
 int traverse_dir()
 {
@@ -103,6 +103,11 @@ int traverse_dir()
 		} else
 		{
 			printf("%s\n", cur_dir);
+		}
+		if (closedir(tdp) < 0)
+		{
+        		fprintf(stderr, "close %s fail\n", cur_dir);
+        		return 0;
 		}
 
 		traverse_dir();
@@ -180,7 +185,7 @@ int search_pre(char *input, char *output)
 
 	int i;
 	init_data_store();
-	if (param->cmd == CMD_QUERY)//Ä¿Ç°Ö»Ö§³Ö²éÑ¯
+	if (param->cmd == CMD_QUERY)//ç›®å‰åªæ”¯æŒæŸ¥è¯¢
 	{							
 
 		if (strlen(param->dirpre) <= 0 || strlen(param->pwddir) <= 0)
